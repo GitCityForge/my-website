@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给李同学的告白</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fdf2f8;
+            overflow: hidden;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        /* 名字样式 - 闪烁效果 */
+        .name {
+            position: absolute;
+            font-size: 60px;
+            font-weight: bold;
+            color: #e53e3e;
+            text-shadow: 0 0 10px #fff, 0 0 20px #e53e3e;
+            animation: blink 2s infinite alternate;
+            z-index: 10;
+        }
+
+        .name-left {
+            top: 50px;
+            left: 100px;
+        }
+
+        .name-right {
+            top: 50px;
+            right: 100px;
+        }
+
+        /* 闪烁动画 */
+        @keyframes blink {
+            from { opacity: 0.7; }
+            to { opacity: 1; text-shadow: 0 0 15px #fff, 0 0 30px #e53e3e; }
+        }
+
+        /* 爱心容器 - 居中 */
+        .heart-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 爱心样式 - 动感效果 */
+        .heart {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: #e53e3e;
+            transform: rotate(45deg);
+            box-shadow: 0 0 50px #e53e3e;
+            animation: heartBeat 2s infinite alternate;
+            z-index: 1;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-color: #e53e3e;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -300px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: -300px;
+        }
+
+        /* 爱心跳动动画 */
+        @keyframes heartBeat {
+            from { transform: rotate(45deg) scale(0.95); }
+            to { transform: rotate(45deg) scale(1.05); box-shadow: 0 0 80px #e53e3e; }
+        }
+
+        /* 告白文字样式 - 渐入动画 */
+        .confession {
+            position: absolute;
+            z-index: 2;
+            color: white;
+            font-size: 24px;
+            line-height: 1.8;
+            text-align: center;
+            padding: 0 50px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* 文字渐入动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1200px) {
+            .heart { width: 400px; height: 400px; }
+            .heart::before, .heart::after { width: 400px; height: 400px; }
+            .heart::before { top: -200px; }
+            .heart::after { left: -200px; }
+            .confession { font-size: 20px; }
+            .name { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 名字区域 -->
+    <div class="name name-left">曹同学</div>
+    <div class="name name-right">李同学</div>
+
+    <!-- 爱心+文字区域 -->
+    <div class="heart-container">
+        <div class="heart"></div>
+        <div class="confession">
+            亲爱的李同学，<br>
+            在遇见你之前，我整个人都是暗淡的，<br>
+            孤独，直到遇见你我才发现人生的价值，<br>
+            在你的指引下，我才慢慢重塑我的人生价值，<br>
+            让我的人生更加饱满，<br>
+            我发现你真诚，善良，有自己的主见，<br>
+            与人交流时更是展现出对他人的尊重，<br>
+            未来我希望你能陪在我身边，<br>
+            所以你会同意我的请求嘛。
+        </div>
+    </div>
+
+    <!-- 背景音乐（绝对路径版：指向你存放we.mp3的位置） -->
+    <audio id="music" loop>
+        <source src="D:/c/cs/we.mp3" type="audio/mpeg">
+    <|FunctionCallEnd|>
